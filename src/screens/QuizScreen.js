@@ -93,7 +93,7 @@ export default function QuizScreen({ navigation }) {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.homeBtn}
-            onPress={() => navigation && navigation.goBack()}
+            onPress={() => navigation?.canGoBack() ? navigation.goBack() : null}
           >
             <Text style={styles.homeBtnText}>Back to Home</Text>
           </TouchableOpacity>
@@ -114,7 +114,7 @@ export default function QuizScreen({ navigation }) {
         <View style={styles.topBar}>
           <TouchableOpacity
             style={styles.iconBtn}
-            onPress={() => navigation && navigation.goBack()}
+            onPress={() => navigation?.canGoBack() ? navigation.goBack() : null}
           >
             <Ionicons name="close" size={22} color={COLORS.charcoal} />
           </TouchableOpacity>

@@ -11,9 +11,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '../constants/colors';
 import * as Haptics from 'expo-haptics';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
-export default function QuizBreakCard({ quiz, onContinue }) {
+export default function QuizBreakCard({ quiz, onContinue, cardHeight }) {
   const [selected, setSelected] = useState(null);
   const [answered, setAnswered] = useState(false);
 
@@ -40,7 +40,7 @@ export default function QuizBreakCard({ quiz, onContinue }) {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { height: cardHeight }]}>
       <View style={styles.card}>
         <View style={styles.header}>
           <View style={styles.headerBadge}>
@@ -108,7 +108,6 @@ export default function QuizBreakCard({ quiz, onContinue }) {
 const styles = StyleSheet.create({
   container: {
     width,
-    height,
     backgroundColor: '#F0F4FF',
     justifyContent: 'center',
     alignItems: 'center',

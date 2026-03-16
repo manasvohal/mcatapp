@@ -63,7 +63,7 @@ export default function AppNavigator() {
           options={{
             tabBarIcon: ({ focused }) => (
               <TabIcon
-                name={focused ? 'infinite' : 'infinite-outline'}
+                name="infinite"
                 focused={focused}
                 label="Feed"
               />

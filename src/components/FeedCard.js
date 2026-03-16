@@ -12,9 +12,9 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { SUBJECT_GRADIENTS, SUBJECT_ICONS } from '../constants/colors';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
-export default function FeedCard({ card, streakCount, isActive, onStash, onMastered }) {
+export default function FeedCard({ card, streakCount, isActive, onStash, onMastered, cardHeight }) {
   const scaleAnim = useRef(new Animated.Value(0.95)).current;
   const stashScale = useRef(new Animated.Value(1)).current;
   const masteredScale = useRef(new Animated.Value(1)).current;
@@ -66,7 +66,7 @@ export default function FeedCard({ card, streakCount, isActive, onStash, onMaste
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { height: cardHeight }]}>
       <LinearGradient colors={gradients} style={styles.gradient}>
         {/* Noise overlay */}
         <View style={styles.noiseOverlay} />
@@ -150,7 +150,6 @@ export default function FeedCard({ card, streakCount, isActive, onStash, onMaste
 const styles = StyleSheet.create({
   container: {
     width,
-    height,
   },
   gradient: {
     flex: 1,
